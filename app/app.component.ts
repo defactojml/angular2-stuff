@@ -22,10 +22,21 @@ export class Hero {
         <h2> My Heroes </h2> 
         <div> 
             <ul class="heroes">
-                <li *ngFor="let hero of heroes">
+                <li *ngFor="let hero of heroes" 
+                    [class.selected]="hero === selectedhero"
+                    (click)="onSelect(hero)">
                     <span class="badge"> {{hero.id}}</span>{{hero.name}}
                 </li>
             </ul>
+        </div>
+       
+        <div *ngIf="selectedhero">
+            <h2>{{selectedhero.name}} details </h2>
+            <div><label>id: </label> {{selectedhero.id}}</div>
+            <div>
+                <label>name: </label>
+                <input [(ngModel)]="selectedhero.name" placeholder="name">
+            </div>
         </div>
         `,
     styles: [`
@@ -82,7 +93,11 @@ export class Hero {
 export class AppComponent {
     title = 'Tour of Heroes';
     heroes = HEROES;
+    selectedhero: Hero;
 
+    onSelect(hero: Hero): void {
+        this.selectedhero = hero
+    }
 }
 
 
