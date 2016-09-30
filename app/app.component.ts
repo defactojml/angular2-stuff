@@ -80,7 +80,7 @@ export class AppComponent implements OnInit{
     }
 
     title = 'Tour of Heroes';
-    heroes : [Hero];
+    heroes : Hero[];
     selectedhero: Hero;
 
     onSelect(hero: Hero): void {
@@ -90,7 +90,7 @@ export class AppComponent implements OnInit{
     }
 
     getHeroes(): void {
-        this.heroes = this.heroService.getHeroes();
+        this.heroService.getHeroes().then(heroes => this.heroes = heroes);
     }
 }
 
