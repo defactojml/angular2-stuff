@@ -11,13 +11,13 @@ import {HeroService} from "./hero.service";
         <div> 
             <ul class="heroes">
                 <li *ngFor="let hero of heroes" 
-                    [class.selected]="hero === selectedhero"
+                    [class.selected]="hero === selectedHero"
                     (click)="onSelect(hero)">
                     <span class="badge"> {{hero.id}}</span>{{hero.name}}
                 </li>
             </ul>
         </div>
-        <my-hero-detail [hero]="selectedhero"></my-hero-detail>
+        <my-hero-detail [hero]="selectedHero"></my-hero-detail>
         `,
     styles: [`
       .selected {
@@ -75,7 +75,7 @@ export class AppComponent implements OnInit{
 
     title = 'Tour of Heroes';
     heroes : Hero[];
-    selectedhero: Hero;
+    selectedHero: Hero;
 
     constructor(private heroService: HeroService) {
     }
@@ -91,7 +91,7 @@ export class AppComponent implements OnInit{
     onSelect(hero: Hero): void {
         console.info('JM - onSelect');
         console.info('JM - hero', JSON.stringify(hero));
-        this.selectedhero = hero
+        this.selectedHero = hero
     }
 }
 
