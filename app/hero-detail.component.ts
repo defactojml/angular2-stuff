@@ -3,7 +3,7 @@
  */
 
 import {Component, Input} from "@angular/core";
-import {Hero} from "./app.component";
+import {Hero} from "./hero";
 
 
 @Component({
