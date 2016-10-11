@@ -15,6 +15,7 @@ import {HeroService} from "./hero.service";
 export class DashboardComponent {
 
     heroes: Hero[] = [];
+    selectedHero: Hero;
 
     constructor(private heroService: HeroService) {}
 
@@ -26,6 +27,7 @@ export class DashboardComponent {
     onSelect(hero: Hero): void {
         console.info('JM - onSelect');
         console.info('JM - hero', JSON.stringify(hero));
+        this.selectedHero = hero;
     }
 
 }
