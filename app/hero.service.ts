@@ -2,9 +2,9 @@
  * Created by jean-michel.legrand on 30/09/2016.
  */
 
-import {Injectable} from '@angular/core';
+import {Injectable} from "@angular/core";
 import {Hero} from "./hero";
-import {HEROES} from './mock-heroes';
+import {HEROES} from "./mock-heroes";
 
 @Injectable()
 export class HeroService {
@@ -15,11 +15,12 @@ export class HeroService {
     getHeroesSlowly(): Promise<Hero[]> {
         return new Promise<Hero[]>(resolve =>
             setTimeout(resolve, 2000))
-            .then( () => this.getHeroes() );
+            .then(() => this.getHeroes());
     }
 
     getHero(id: Number): Promise<Hero> {
-        return this.getHeroes().then(heroes => heroes.find(hero => hero.id === id));
+        return this.getHeroes()
+            .then(heroes => heroes.find(hero => hero.id === id));
     }
 
 }

@@ -3,37 +3,26 @@
  */
 
 import {Component, Input, OnInit} from "@angular/core";
-import {Location} from '@angular/common';
+import {Location} from "@angular/common";
 import {Hero} from "./hero";
 import {HeroService} from "./hero.service";
 import {ActivatedRoute, Params} from "@angular/router";
 
 
 @Component({
+    moduleId: module.id,
     selector: 'my-hero-detail',
-    template: `
-        <div *ngIf="hero">
-            <h2>{{hero.name}} details </h2>
-            <div><label>id: </label> {{hero.id}}</div>
-            <div>
-                <label>name: </label>
-                <input [(ngModel)]="hero.name" placeholder="name">
-            </div>
-        </div>
-        
-        <button (click)="goBack()">Back</button>
-    `
+    templateUrl: 'hero-detail.component.html'
 })
 
-export class HeroDetailComponent implements OnInit{
+export class HeroDetailComponent implements OnInit {
 
     @Input() hero: Hero;
 
-    constructor(
-        private heroService : HeroService,
-        private route : ActivatedRoute,
-        private location: Location
-    ) {}
+    constructor(private heroService: HeroService,
+                private route: ActivatedRoute,
+                private location: Location) {
+    }
 
     ngOnInit(): void {
         this.route.params.forEach((params: Params) => {
@@ -43,7 +32,7 @@ export class HeroDetailComponent implements OnInit{
         })
     }
 
-    goBack() : void {
+    goBack(): void {
         this.location.back();
     }
 }
