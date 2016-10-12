@@ -4,6 +4,7 @@ import {Hero} from "./hero";
  */
 
 export const HEROES: Hero[] = [
+    {id: 1, name: 'Laurent FIGNON'},
     {id: 2, name: 'Michel PLATINI'},
     {id: 3, name: 'Michel HIDALGO'},
     {id: 4, name: 'Michel MEZY'},
