@@ -56,4 +56,8 @@ export class HeroService {
             .catch(this.handleError);
     }
 
+    delete(hero: Hero): void {
+
+    }
+
 }
